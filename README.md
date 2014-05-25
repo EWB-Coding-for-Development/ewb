@@ -16,10 +16,15 @@ Usage
 -----
 Must be executed by root or user with permission to output to GPIO pins.
 When blink.py is either imported or executed within the python/ipython shell, the 'blink()' function is available:
->blink(count, period, pin_number=11)
->outputs a loop of blinks to an LED via GPIO pin number defined by the function 'pin_num'
+>blink(count, period, pin_num=11)
+>
+>outputs blinks to an LED via a GPIO pin (default pin 11)
+>
 >count = number of LED blinks
+>
 >period = number of seconds for each LED blink
+>
+>pin_num = GPIO pin number to output blink to
 
 Example:
 ```python
