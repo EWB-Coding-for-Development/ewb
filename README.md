@@ -18,15 +18,21 @@ Usage
 -----
 Must be executed by root or user with permission to output to GPIO pins.
 When blink.py is either imported or executed within the python/ipython shell, the 'blink()' function becomes available:
+```
 blink(count, period, pin_num=11)
 outputs blinks to an LED via a GPIO pin (default pin 11)
 count = number of LED blinks
 period = number of seconds for each LED blink
 pin_num = GPIO pin number to output blink to
+```
 
 Example:
 ```python
 from blink import blink
-blink(5,1) # will make the LED blink 5 times, holding for 1 second per blink, output to GPIO pin 11 by default
-blink(3,2,7) # will make the LED blink 3 times, holding for 2 seconds per blink, output to GPIO pin 7
+
+# make the LED blink 5 times, holding for 1 second per blink, output to GPIO pin 11 by default
+blink(5,1)
+
+# make the LED blink 3 times, holding for 2 seconds per blink, output to GPIO pin 7
+blink(3,2,7)
 ```
