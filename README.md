@@ -1,7 +1,7 @@
 blink-led
 =========
 
-Simple script for outputting a blinking LED from a Raspberry Pi GPIO pin. Inpsired by Scott Mangold's article 'Lighting Up An Led Using Your Raspberry Pi and Python' (http://www.thirdeyevis.com/pi-page-2.php)
+Simple script for a initializing a function that blinks an LED via a Raspberry Pi GPIO pin. Inpsired by Scott Mangold's article [Lighting Up An Led Using Your Raspberry Pi and Python](http://www.thirdeyevis.com/pi-page-2.php)
 
 Dependancies
 ------------
@@ -24,5 +24,6 @@ When blink.py is either imported or executed within the python/ipython shell, th
 Example:
 ```python
 import blink as b
-b.blink(5,1) # will make the LED blink 5 times, holding for 1 second per blink.
+b.blink(5,1) # will make the LED blink 5 times, holding for 1 second per blink, output to GPIO pin 11 by default
+b.blink(3,2,7) # will make the LED blink 3 times, holding for 2 seconds per blink, output to GPIO pin 7
 ```
