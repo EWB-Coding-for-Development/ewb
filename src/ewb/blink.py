@@ -1,4 +1,9 @@
-import RPi.GPIO as GPIO 
+# Copyright (c) 2014 James Utter, All rights reserved.
+#
+# @author: see AUTHORS file
+
+import RPi.GPIO as GPIO
+
 import time
 
 # Define a function named blink()
@@ -13,7 +18,7 @@ def blink(count, period, pin_num=11):
   GPIO.setup(pin_num, GPIO.OUT)
   # Loop through LED blink 'count' times 
   for i in range(0, count):
-    print "Iteration " + str(i+1) + " of " + str(count)
+    print("Iteration " + str(i+1) + " of " + str(count))
     # pin 'pin_num' ON
     GPIO.output(pin_num,True)
     # wait 'period' seconds
@@ -22,7 +27,13 @@ def blink(count, period, pin_num=11):
     GPIO.output(pin_num,False)
     # wait 'period' seconds
     time.sleep(period)
-  print "Done"
+  print("Done")
   # Reset status GPIO pins
   GPIO.cleanup()
 
+def digitalWrite(pin, value):
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(pin, GPIO.OUT)
+    assert(value in (False, True, 0, 1))
+    GPIO.output(pin_num, value)
+    GPIO.cleanup()
