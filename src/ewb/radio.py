@@ -24,12 +24,9 @@ class Radio(threading.Thread):
     def run(self):
         try:
             cmd = ["pifm", "-", str(self.frequency)] #str(self.sample_rate), "stereo" if self.stereo else "mono"]
-            print(cmd)
             self.fm_process = subprocess.Popen(cmd, bufsize=10,
                     stdin=self.wav_pipe_r)
-            print("pifm started")
             self.fm_process.wait()
-            print("pifm finished")
         except OSError as e:
             if e.errno == 2:
                 print("File Not Found: '{}'".format(binary))

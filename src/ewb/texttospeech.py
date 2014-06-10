@@ -43,8 +43,6 @@ def say(say_text, language="en", gender="male", variant=0, capital_emphasis=None
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=stdout,
                stderr=subprocess.PIPE)
         (output, err) = p.communicate(input=say_text.encode("utf-8"))
-        print(err)
-        print(output)
     except OSError as e:
         if e.errno == 2: # No such file or directory
             print("espeak not found. Please install espeak\n")
