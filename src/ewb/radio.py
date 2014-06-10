@@ -69,8 +69,11 @@ class Radio(threading.Thread):
         player.wait()
 
     def terminate(self):
-        self.fm_process.terminate()
-        _radio = None
+        try:
+            self.fm_process.terminate()
+            _radio = None
+        except OSError:
+            pass
 
 global _radio
 _radio = None
