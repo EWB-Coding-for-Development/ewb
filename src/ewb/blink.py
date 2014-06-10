@@ -35,5 +35,4 @@ def digitalWrite(pin, value):
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(pin, GPIO.OUT)
     assert(value in (False, True, 0, 1))
-    GPIO.output(pin_num, value)
-    GPIO.cleanup()
+    GPIO.output(pin, value)
