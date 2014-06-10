@@ -9,10 +9,13 @@ import threading
 
 from texttospeech import say
 
+FREQUENCY_MIN, FREQUENCY_MAX = (76.0, 108.0)
+
 class Radio(threading.Thread):
     def __init__(self, frequency, stereo=None, sample_rate=None):
         threading.Thread.__init__(self)
         self.daemon = True
+        assert(FREQUENCY_MIN < frequency < FREQUENCY_MAX)
         self.frequency = frequency
         self.stereo = stereo
         self.sample_rate = sample_rate
