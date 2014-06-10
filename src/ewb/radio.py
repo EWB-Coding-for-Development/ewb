@@ -13,7 +13,7 @@ from texttospeech import say
 
 FREQUENCY_MIN, FREQUENCY_MAX = (76.0, 108.0)
 
-class PermissionsError(BaseException):
+class SubprocessError(BaseException):
     pass
 
 class Radio(threading.Thread):
@@ -38,7 +38,7 @@ class Radio(threading.Thread):
             retcode = self.fm_process.wait()
             if retcode == 255:
                 # pifm failed to open /dev/mem
-                raise PermissionsError, "User does not have write access to /dev/mem"
+                raise SubprocessError, "User does not have write access to /dev/mem"
 
         except OSError as e:
             # This improves the detail given by the error on Python2.x
@@ -54,19 +54,31 @@ class Radio(threading.Thread):
 
     def say(self, say_text, language="en", gender="male", variant=0, capital_emphasis=None,
         pitch=None, speed=None, gap=None, amplitude=None, extra_args=None,
-        stdout=None, wav_fp=None, gapless=False):
+        stdout=None, wav_fp=None, add_silence=True):
 
         say(say_text, language=language, gender=gender, variant=variant, 
             pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                 capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
 
         # Play a sample of silence, to prevent pifm from looping buffer
-        if not gapless:
-            self.play(os.path.join(os.path.dirname(__file__), "silence.wav"))
+        if add_silence:
+            self.play_silence()
 
-    def play(self, wav):
-        player = subprocess.Popen(['cat', wav], stdout=self.wav_pipe_w)
-        player.wait()
+    def play(self, wav, add_silence=True):
+        if hasattr(wav, 'read'):
+            raise NotImplemented
+        else:
+            player = subprocess.Popen(['cat', wav], stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
+            out, err = player.communicate()
+            if player.poll():
+                raise SubprocessError, err
+        if add_silence:
+            self.play_silence()
+
+    def play_silence(self):
+        silence = os.path.join(os.path.dirname(__file__), "silence.wav")
+        self.play(silence, add_silence=False)
+
 
     def terminate(self):
         try:
