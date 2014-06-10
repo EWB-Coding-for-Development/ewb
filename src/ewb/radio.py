@@ -40,7 +40,7 @@ class Radio(threading.Thread):
         pitch=None, speed=None, gap=None, amplitude=None, extra_args=None,
         stdout=None, wav_fp=None):
 
-        say(self, say_text, language=language, gender=gender, variant=variant, 
+        say(say_text, language=language, gender=gender, variant=variant, 
             pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                 capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
 
@@ -55,6 +55,6 @@ def get_radio(frequency, stereo=None, sample_rate=None):
     if _radio == None:
         radio = Radio(frequency, stereo, sample_rate)
         radio.start()
-
+	_radio = radio
     return _radio
 
