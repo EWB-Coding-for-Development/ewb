@@ -7,7 +7,7 @@ import subprocess
 import sys
 import threading
 
-from ewb.texttospeech import say
+from texttospeech import say
 
 class Radio(threading.Thread):
     def __init__(self, frequency, stereo=None, sample_rate=None):
