@@ -12,6 +12,7 @@ from ewb.texttospeech import say
 class Radio(threading.Thread):
     def __init__(self, frequency, stereo=None, sample_rate=None):
         threading.Thread.__init__(self)
+        self.daemon = True
         self.frequency = frequency
         self.stereo = stereo
         self.sample_rate = sample_rate

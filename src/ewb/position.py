@@ -17,6 +17,7 @@ class GpsPoller(threading.Thread):
     """
     def __init__(self):
         threading.Thread.__init__(self)
+        self.daemon = True
         self.session = gps.gps(mode=gps.WATCH_ENABLE)
         self.current_value = None
 
