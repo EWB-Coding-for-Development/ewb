@@ -19,13 +19,14 @@ class Radio(threading.Thread):
         self.wav_pipe_r, self.wav_pipe_w = os.pipe()
 
     def run(self):
-        binary = "pifm"
         try:
-            self.fm_process = subprocess.Popen(
-                    [binary, "-", str(self.frequency), str(self.sample_rate),
-                    "stereo" if self.stereo else "mono"],
-                    stdin=self.wav_pipe_r, stdout=sys.stdout
-                    )
+            cmd = ["pifm", "-", str(self.frequency)] #str(self.sample_rate), "stereo" if self.stereo else "mono"]
+            print(cmd)
+            self.fm_process = subprocess.Popen(cmd, bufsize=10,
+                    stdin=self.wav_pipe_r)
+            print("pifm started")
+            self.fm_process.wait()
+            print("pifm finished")
         except OSError as e:
             if e.errno == 2:
                 print("File Not Found: '{}'".format(binary))
@@ -39,14 +40,20 @@ class Radio(threading.Thread):
 
     def say(self, say_text, language="en", gender="male", variant=0, capital_emphasis=None,
         pitch=None, speed=None, gap=None, amplitude=None, extra_args=None,
-        stdout=None, wav_fp=None):
+        stdout=None, wav_fp=None, gapless=False):
 
         say(say_text, language=language, gender=gender, variant=variant, 
             pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                 capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
 
+        # Play a sample of silence, to prevent pifm from looping buffer
+        if not gapless:
+	    self.play(os.path.join(os.path.dirname(__file__), "silence.wav"))
+
     def play(self, wav):
-        raise NotImplementedError
+        player = subprocess.Popen(['cat', wav], stdout=self.wav_pipe_w)
+        player.wait()
+
 
 global _radio
 _radio = None
