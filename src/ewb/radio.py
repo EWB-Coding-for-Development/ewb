@@ -17,8 +17,6 @@ class Radio(threading.Thread):
         self.sample_rate = sample_rate
         self.wav_pipe_r, self.wav_pipe_w = os.pipe()
 
-        self.radio_state = False
-
     def run(self):
         binary = "pifm"
         try:
@@ -27,7 +25,6 @@ class Radio(threading.Thread):
                     "stereo" if self.stereo else "mono"],
                     stdin=self.wav_pipe_r, stdout=sys.stdout
                     )
-            self.radio_state = True
         except OSError as e:
             if e.errno == 2:
                 print("File Not Found: '{}'".format(binary))
@@ -35,9 +32,6 @@ class Radio(threading.Thread):
                 if not e.filename:
                     e.filename = binary # give a more descriptive file-not-found message
                 raise(e)
-
-    def radio_is_ok(self):
-        return self.radio_state
 
     def get_input_pipe(self):
         return self.wav_pipe_w
@@ -50,6 +44,9 @@ class Radio(threading.Thread):
             pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                 capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
 
+    def play(self, wav):
+        raise NotImplementedError
+
 global _radio
 _radio = None
 
@@ -59,8 +56,5 @@ def get_radio(frequency, stereo=None, sample_rate=None):
         radio = Radio(frequency, stereo, sample_rate)
         radio.start()
 
-        # check that radio initialised correctly
-        if radio.radio_is_ok():
-            _radio = radio
     return _radio
 
