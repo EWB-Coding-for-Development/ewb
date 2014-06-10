@@ -2,10 +2,12 @@
 #
 # @author: see AUTHORS file
 
+import atexit
 import os
 import subprocess
 import sys
 import threading
+import time
 
 from texttospeech import say
 
@@ -66,6 +68,9 @@ class Radio(threading.Thread):
         player = subprocess.Popen(['cat', wav], stdout=self.wav_pipe_w)
         player.wait()
 
+    def terminate(self):
+        self.fm_process.terminate()
+        _radio = None
 
 global _radio
 _radio = None
@@ -78,3 +83,9 @@ def get_radio(frequency, stereo=None, sample_rate=None):
         _radio = radio
     return _radio
 
+def kill_children():
+    """Handler to kill child processes at exit"""
+    time.sleep(0.3) # wait a fraction of a second so the audio transmission completes
+    _radio.terminate()
+
+atexit.register(kill_children)
