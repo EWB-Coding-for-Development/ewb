@@ -88,7 +88,7 @@ def get_radio(frequency, stereo=None, sample_rate=None):
 
 def kill_children():
     """Handler to kill child processes at exit"""
-    time.sleep(0.3) # wait a fraction of a second so the audio transmission completes
+    time.sleep(1) # wait a second so the audio transmission completes
     _radio.terminate()
 
 atexit.register(kill_children)
