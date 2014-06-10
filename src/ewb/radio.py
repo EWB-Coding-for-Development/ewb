@@ -11,6 +11,9 @@ from texttospeech import say
 
 FREQUENCY_MIN, FREQUENCY_MAX = (76.0, 108.0)
 
+class PermissionsError(BaseException):
+    pass
+
 class Radio(threading.Thread):
     def __init__(self, frequency, stereo=None, sample_rate=None):
         threading.Thread.__init__(self)
@@ -23,11 +26,20 @@ class Radio(threading.Thread):
 
     def run(self):
         try:
-            cmd = ["pifm", "-", str(self.frequency)] #str(self.sample_rate), "stereo" if self.stereo else "mono"]
-            self.fm_process = subprocess.Popen(cmd, bufsize=10,
-                    stdin=self.wav_pipe_r)
-            self.fm_process.wait()
+            args = ["pifm", "-", str(self.frequency)]
+            if self.sample_rate:
+                args.append(self.sample_rate)
+            if self.stereo:
+                args.append(self.stereo)
+
+            self.fm_process = subprocess.Popen(args, stdin=self.wav_pipe_r)
+            retcode = self.fm_process.wait()
+            if retcode == 255:
+                # pifm failed to open /dev/mem
+                raise PermissionsError, "User does not have write access to /dev/mem"
+
         except OSError as e:
+            # This improves the detail given by the error on Python2.x
             if e.errno == 2:
                 print("File Not Found: '{}'".format(binary))
                 print("Make sure {} is installed and included in your PATH\n".format(binary))
@@ -48,7 +60,7 @@ class Radio(threading.Thread):
 
         # Play a sample of silence, to prevent pifm from looping buffer
         if not gapless:
-	    self.play(os.path.join(os.path.dirname(__file__), "silence.wav"))
+            self.play(os.path.join(os.path.dirname(__file__), "silence.wav"))
 
     def play(self, wav):
         player = subprocess.Popen(['cat', wav], stdout=self.wav_pipe_w)
@@ -63,6 +75,6 @@ def get_radio(frequency, stereo=None, sample_rate=None):
     if _radio == None:
         radio = Radio(frequency, stereo, sample_rate)
         radio.start()
-	_radio = radio
+        _radio = radio
     return _radio
 
