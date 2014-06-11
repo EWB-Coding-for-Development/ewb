@@ -14,21 +14,16 @@ It contains several modules for use with a RaspberryPi.
 
 ## Dependencies
 
-* pifm
+### pifm
 
     cd ~  
     wget http://omattos.com/pifm.tar.gz  
     tar xf pifm.tar.gz  
-    sudo mv pifm /usr/sbin/pifm
+    sudo cp pifm /usr/sbin/pifm
 
-* ipython
-* ipython-notebook
-* python-gps
-* python-rpi.gpio
-* espeak
-* git
+### System dependencies
 
-    apt-get install ipython-notebook python-gps python-rpi.gpio espeak git
+    sudo apt-get install ipython-notebook python-gps python-rpi.gpio espeak git
 
 ## How to download and run this code
 
