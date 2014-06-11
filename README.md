@@ -6,17 +6,19 @@ It contains several modules for use with a RaspberryPi.
 
 ## Modules
 
-ewb.radio: An interface to the `pifm` FM transmitter. Includes Text-to-speech capability
-ewb.position: An interface to the GPS
-ewb.blink: Introductory functions for the accessing the Inputs and Outputs of the RaspberryPi
+`ewb.radio`: An interface to the `pifm` FM transmitter. Includes Text-to-speech capability
+
+`ewb.position`: An interface to the GPS
+
+`ewb.blink`: Introductory functions for the accessing the Inputs and Outputs of the RaspberryPi
 
 ## Dependencies
 
 * pifm
 
-    cd ~
-    wget http://omattos.com/pifm.tar.gz
-    tar xf pifm.tar.gz
+    cd ~  
+    wget http://omattos.com/pifm.tar.gz  
+    tar xf pifm.tar.gz  
     sudo mv pifm /usr/sbin/pifm
 
 * ipython
@@ -32,15 +34,14 @@ ewb.blink: Introductory functions for the accessing the Inputs and Outputs of th
 
 On your raspberry pi:
 
-First find the IP ADDRESS of your Raspberry Pi. Paste the following into the command line of your Pi:
+First find the IP ADDRESS of your Raspberry Pi. It should look something like 192.168.0.2.
 
+    # This command will print the IP ADDRESS of your Pi  
     ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
 
-It should print out an address such as 192.168.0.2
+Now download the `ewb` code into your home directory
 
-Now download this code into your home directory
-
-    cd ~
+    cd ~  
     git clone git@github.com:EWB-Coding-for-Development/ewb.git
 
 If you are connecting the GPS directly to the Pi, the following is required to disable the Serial Console
