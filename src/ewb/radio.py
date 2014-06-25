@@ -49,11 +49,9 @@ class Radio(threading.Thread):
                     raise SubprocessError("User does not have write access to /dev/mem")
 
         except OSError as e:
-            # This improves the detail given by the error on Python2.x
-            if e.errno == 2:
-                if not e.filename:
-                    e.filename = args[0] # give a more descriptive file-not-found message
-                raise(e)
+            if e.errno == 2 and not e.filename:
+                e.filename = args[0] # give a more descriptive file-not-found error on Python2.x
+            raise(e)
 
     def __repr__(self):
         if self.is_alive():
@@ -72,7 +70,7 @@ class Radio(threading.Thread):
             say(say_text, language=language, gender=gender, variant=variant, 
                 pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                     capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
-    
+
             # Play a sample of silence, to prevent pifm from looping buffer
             if add_silence:
                 self.play_silence()
@@ -84,10 +82,15 @@ class Radio(threading.Thread):
             if hasattr(wav, 'read'):
                 raise NotImplemented
             else:
-                player = subprocess.Popen(['cat', wav], stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
-                out, err = player.communicate()
-                if player.poll():
-                    raise SubprocessError(err)
+                try:
+                    player = subprocess.Popen(['sox', wav, '-r', '{}'.format(self.sample_rate), '-b', '16', '-t', 'wav', '-'], stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
+                    out, err = player.communicate()
+                    if player.poll():
+                        raise SubprocessError(err)
+                except OSError as e:
+                    if e.errno == 2 and not e.filename:
+                        e.filename = 'sox' # give a more descriptive file-not-found error on Python2.x
+                    raise e
             if add_silence:
                 self.play_silence()
         else:

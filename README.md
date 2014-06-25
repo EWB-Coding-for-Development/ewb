@@ -23,7 +23,11 @@ It contains several modules for use with a RaspberryPi.
 
 ### System dependencies
 
-    sudo apt-get install ipython-notebook python-gps python-rpi.gpio espeak git
+    sudo apt-get install ipython-notebook python-gps python-rpi.gpio espeak git sox
+
+Recommended but not required:
+
+    sudo apt-get install gpsd-clients picocom libsox-fmt-all
 
 ## How to download and run this code
 
