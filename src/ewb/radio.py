@@ -35,17 +35,18 @@ class Radio(threading.Thread):
 
     def run(self):
         try:
-            args = ["pifm", "-", str(self.frequency)]
-            if self.sample_rate:
-                args.append(str(self.sample_rate))
-            if self.stereo:
-                args.append("stereo")
+            while True:
+                args = ["pifm", "-", str(self.frequency)]
+                if self.sample_rate:
+                    args.append(str(self.sample_rate))
+                if self.stereo:
+                    args.append("stereo")
 
-            self.fm_process = subprocess.Popen(args, stdin=self.wav_pipe_r)
-            retcode = self.fm_process.wait()
-            if retcode == 255:
-                # pifm failed to open /dev/mem
-                raise SubprocessError("User does not have write access to /dev/mem")
+                self.fm_process = subprocess.Popen(args, stdin=self.wav_pipe_r)
+                retcode = self.fm_process.wait()
+                if retcode == 255:
+                    # pifm failed to open /dev/mem
+                    raise SubprocessError("User does not have write access to /dev/mem")
 
         except OSError as e:
             # This improves the detail given by the error on Python2.x
