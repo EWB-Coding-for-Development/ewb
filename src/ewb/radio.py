@@ -27,6 +27,7 @@ class Radio(threading.Thread):
         self.frequency = frequency
         if stereo == None:
             stereo = False
+        assert(stereo in [0, 1, True, False, 'mono', 'stereo'])
         self.stereo = stereo
         if sample_rate == None:
             sample_rate = 22050
@@ -77,30 +78,26 @@ class Radio(threading.Thread):
         else:
             raise RadioNotRunningError
 
-    def play(self, wav, add_silence=True):
-        if self.is_alive():
-            if hasattr(wav, 'read'):
-                raise NotImplemented
-            else:
-                try:
-                    player = subprocess.Popen(['sox', wav, '-r', '{}'.format(self.sample_rate), '-b', '16', '-t', 'wav', '-'], stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
-                    out, err = player.communicate()
-                    if player.poll():
-                        raise SubprocessError(err)
-                except OSError as e:
-                    if e.errno == 2 and not e.filename:
-                        e.filename = 'sox' # give a more descriptive file-not-found error on Python2.x
-                    raise e
-            if add_silence:
-                self.play_silence()
-        else:
-            raise RadioNotRunningError
+    def play(self, audio_file, add_silence=True):
+        """Plays an audio file over the radio.
 
-    def play_silence(self):
-        silence = os.path.join(os.path.dirname(__file__), "silence.wav")
-        self.play(silence, add_silence=False)
+        Uses `sox` to play audio files, so is compatible with any format that
+        can be played by sox, such as .wav files.
+        Many extra formats such as mp3 are supported if libsox-fmt-all
+        is installed.
 
-    def tone(self, note, length=-1, tone_func='sin', add_silence=True):
+        Arguments:
+            `audio_file`:      Path to audio file.
+
+            `add_silence`:  Plays silence at the end of audio file.
+        """
+        self.sox([], infile=audio_file, add_silence=add_silence)
+
+    def play_silence(self, length=0.8):
+        """Plays silence"""
+        self.sox(["trim", "0", "{}".format(length)], add_silence=False)
+
+    def tone(self, note, length=0, tone_func='sin', gain=-12, add_silence=True):
         """Play a tone directly over the radio
 
         Arguments:
@@ -108,23 +105,49 @@ class Radio(threading.Thread):
                             relative to middle A (440Hz) e.g. "%12" or "%-1".
                             Two Frequencies can be given, separated by one of
                             the characters ':', '+', '/', or '-', to generate a sweep.
-        `length`:       Length (in seconds) of the generated tone. Default -1 (infinite length)
+        `length`:       Length (in seconds) of the generated tone.
+                            Default: 0 (play forever)
+        `tone_func`:    Synth function to play tone. Default: sin
+                            options include: square, triangle, sawtooth,
+                            trapezium, exp, noise, brownnoise, pinknoise, pluck
+        `gain`:         Gain to apply to tone.
+                            Default: -12
+        
         `add_silence`:  Plays silence after tone is completed.
 
         """
+        synth_cmd = ['synth', str(length), tone_func, str(note),
+                    'gain', '{}'.format(gain)]
+        self.sox(synth_cmd, add_silence=add_silence)
+
+    def sox(self, cmd_args, infile=None, verbose=False, add_silence=False):
+        """Wrapper for `sox`. Output is played directly over the radio.
+
+        Arguments:
+            `cmd_args`:     Takes list of arguments to `sox`
+            `infile`:       Input file to sox. Default: None (null)
+            `verbose`:      Prints the complete set of arguments called
+            `add_silence`:  Plays silence after command has completed
+        """
         if self.is_alive():
             try:
-                if length == -1:
-                    length = ""
-                args = ['sox', '-n', '-b', '16', '-t', 'wav', '-',
-                        'synth', str(length), tone_func, str(note)]
+                if infile == None:
+                    infile = '-n'
+                args = ['sox', infile, '-r', str(self.sample_rate), '-b', '16',
+                        '-c2' if self.stereo else '-c1', '-t', 'wav', '-']
+                args.extend(cmd_args)
+
+                if verbose:
+                    print(" ".join(cmd_args))
+
                 player = subprocess.Popen(args, stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
                 out, err = player.communicate()
                 if player.poll():
                     raise SubprocessError(err)
             except OSError as e:
                 if e.errno == 2 and not e.filename:
-                    e.filename = 'sox' # give a more descriptive file-not-found error on Python2.x
+                    e.filename = 'sox'  # give a more descriptive file-not-found
+                                        # error on Python2.x
                 raise e
             if add_silence:
                 self.play_silence()
