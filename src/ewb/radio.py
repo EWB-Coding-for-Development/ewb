@@ -100,6 +100,36 @@ class Radio(threading.Thread):
         silence = os.path.join(os.path.dirname(__file__), "silence.wav")
         self.play(silence, add_silence=False)
 
+    def tone(self, note, length=-1, tone_func='sin', add_silence=True):
+        """Play a tone directly over the radio
+
+        Arguments:
+        `note`:         Note can be a frequency (Hz) or number of semitones
+                            relative to middle A (440Hz) e.g. "%12" or "%-1".
+                            Two Frequencies can be given, separated by one of
+                            the characters ':', '+', '/', or '-', to generate a sweep.
+        `length`:       Length (in seconds) of the generated tone. Default -1 (infinite length)
+        `add_silence`:  Plays silence after tone is completed.
+
+        """
+        if self.is_alive():
+            try:
+                if length == -1:
+                    length = ""
+                args = ['sox', '-n', '-b', '16', '-t', 'wav', '-',
+                        'synth', str(length), tone_func, str(note)]
+                player = subprocess.Popen(args, stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
+                out, err = player.communicate()
+                if player.poll():
+                    raise SubprocessError(err)
+            except OSError as e:
+                if e.errno == 2 and not e.filename:
+                    e.filename = 'sox' # give a more descriptive file-not-found error on Python2.x
+                raise e
+            if add_silence:
+                self.play_silence()
+        else:
+            raise RadioNotRunningError
 
     def terminate(self):
         try:
