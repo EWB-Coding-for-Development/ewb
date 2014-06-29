@@ -7,7 +7,7 @@ __all__ = ["blink", "position", "radio", "texttospeech"]
 
 # the following dictionary is derived from the morse package for python
 # @author: Augie Fackler <durin42@gmail.com>
-morse = {
+morse_code = {
         '!': '-.-.--',
         "'": '.----.',
         '"': '.-..-.',
@@ -62,4 +62,5 @@ morse = {
         'Y': '-.--',
         'Z': '--..',
         '_': '..--.-',
+        ' ': ' ',
         }
