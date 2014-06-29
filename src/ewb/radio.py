@@ -56,8 +56,16 @@ class Radio(threading.Thread):
                 e.filename = args[0] # give a more descriptive file-not-found error on Python2.x
             raise(e)
 
+    def on_air(self):
+        try:
+            if self.fm_process.returncode == None:
+                return True
+            return False
+        except AttributeError:
+            return False
+
     def __repr__(self):
-        if self.is_alive():
+        if self.on_air():
             return "<Radio: {}MHz {}KHz {}>".format(self.frequency, self.sample_rate, "stereo" if self.stereo else "mono")
         else:
             return "<Radio: Off>"
@@ -69,7 +77,7 @@ class Radio(threading.Thread):
         pitch=None, speed=None, gap=None, amplitude=None, extra_args=None,
         stdout=None, wav_fp=None, add_silence=True):
 
-        if self.is_alive():
+        if self.on_air():
             say(say_text, language=language, gender=gender, variant=variant, 
                 pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                     capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
@@ -131,7 +139,7 @@ class Radio(threading.Thread):
             `verbose`:      Prints the complete set of arguments called
             `add_silence`:  Plays silence after command has completed
         """
-        if self.is_alive():
+        if self.on_air():
             try:
                 if infile == None:
                     infile = '-n'
@@ -157,8 +165,8 @@ class Radio(threading.Thread):
             raise RadioNotRunningError
 
     def terminate(self):
+        self.stop.set()
         try:
-            self.stop.set()
             self.fm_process.terminate()
         except OSError:
             pass
@@ -218,15 +226,17 @@ def get_radio(frequency, stereo=None, sample_rate=None, force=False):
         pass
 
     # Start a Radio if we don't have one
-    if _radio == None or _radio.is_alive() == False:
+    if _radio == None or _radio.on_air() == False:
         _radio = Radio(frequency, stereo, sample_rate)
         _radio.start()
+        start_time, timeout = time.time(), 2
+        while (_radio.on_air() == False):
+            # wait until radio starts (or timeout)
+            if time.time() > start_time + timeout:
+                raise Exception("Radio initialisation failed")
+                break
 
-    if _radio.is_alive():
-        return _radio
-    else:
-        print("Radio initialisation failed")
-        return None
+    return _radio
 
 def kill_children():
     """Handler to kill child processes at exit"""
