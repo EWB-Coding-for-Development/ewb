@@ -34,9 +34,11 @@ class Radio(threading.Thread):
         self.sample_rate = int(sample_rate)
         self.wav_pipe_r, self.wav_pipe_w = os.pipe()
 
+        self.stop = threading.Event()
+
     def run(self):
         try:
-            while True:
+            while (not self.stop.is_set()):
                 args = ["pifm", "-", str(self.frequency)]
                 if self.sample_rate:
                     args.append(str(self.sample_rate))
@@ -156,9 +158,8 @@ class Radio(threading.Thread):
 
     def terminate(self):
         try:
+            self.stop.set()
             self.fm_process.terminate()
-            global _radio
-            _radio = None
         except OSError:
             pass
 
@@ -200,9 +201,15 @@ def get_radio(frequency, stereo=None, sample_rate=None, force=False):
         if _radio.frequency != frequency:
             _radio.terminate()
         if _radio.stereo != stereo:
-            _radio.terminate()
+            if _radio.stereo == False and stereo == None:
+                pass
+            else:
+                _radio.terminate()
         if _radio.sample_rate != sample_rate:
-            _radio.terminate()
+            if _radio.sample_rate == 22050 and sample_rate == None:
+                pass # default
+            else:
+                _radio.terminate()
 
         # if `force` is set, kill the existing radio
         if force:
@@ -211,7 +218,7 @@ def get_radio(frequency, stereo=None, sample_rate=None, force=False):
         pass
 
     # Start a Radio if we don't have one
-    if _radio == None:
+    if _radio == None or _radio.is_alive() == False:
         _radio = Radio(frequency, stereo, sample_rate)
         _radio.start()
 
