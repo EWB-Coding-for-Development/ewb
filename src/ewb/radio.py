@@ -27,15 +27,18 @@ class Radio(threading.Thread):
         self.frequency = frequency
         if stereo == None:
             stereo = False
+        assert(stereo in [0, 1, True, False, 'mono', 'stereo'])
         self.stereo = stereo
         if sample_rate == None:
             sample_rate = 22050
         self.sample_rate = int(sample_rate)
         self.wav_pipe_r, self.wav_pipe_w = os.pipe()
 
+        self.stop = threading.Event()
+
     def run(self):
         try:
-            while True:
+            while (not self.stop.is_set()):
                 args = ["pifm", "-", str(self.frequency)]
                 if self.sample_rate:
                     args.append(str(self.sample_rate))
@@ -53,8 +56,16 @@ class Radio(threading.Thread):
                 e.filename = args[0] # give a more descriptive file-not-found error on Python2.x
             raise(e)
 
+    def on_air(self):
+        try:
+            if self.fm_process.returncode == None:
+                return True
+            return False
+        except AttributeError:
+            return False
+
     def __repr__(self):
-        if self.is_alive():
+        if self.on_air():
             return "<Radio: {}MHz {}KHz {}>".format(self.frequency, self.sample_rate, "stereo" if self.stereo else "mono")
         else:
             return "<Radio: Off>"
@@ -66,7 +77,7 @@ class Radio(threading.Thread):
         pitch=None, speed=None, gap=None, amplitude=None, extra_args=None,
         stdout=None, wav_fp=None, add_silence=True):
 
-        if self.is_alive():
+        if self.on_air():
             say(say_text, language=language, gender=gender, variant=variant, 
                 pitch=pitch, speed=speed, gap=gap, amplitude=amplitude, extra_args=extra_args,
                     capital_emphasis=capital_emphasis, stdout=self.wav_pipe_w)
@@ -77,35 +88,86 @@ class Radio(threading.Thread):
         else:
             raise RadioNotRunningError
 
-    def play(self, wav, add_silence=True):
-        if self.is_alive():
-            if hasattr(wav, 'read'):
-                raise NotImplemented
-            else:
-                try:
-                    player = subprocess.Popen(['sox', wav, '-r', '{}'.format(self.sample_rate), '-b', '16', '-t', 'wav', '-'], stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
-                    out, err = player.communicate()
-                    if player.poll():
-                        raise SubprocessError(err)
-                except OSError as e:
-                    if e.errno == 2 and not e.filename:
-                        e.filename = 'sox' # give a more descriptive file-not-found error on Python2.x
-                    raise e
+    def play(self, audio_file, add_silence=True):
+        """Plays an audio file over the radio.
+
+        Uses `sox` to play audio files, so is compatible with any format that
+        can be played by sox, such as .wav files.
+        Many extra formats such as mp3 are supported if libsox-fmt-all
+        is installed.
+
+        Arguments:
+            `audio_file`:      Path to audio file.
+
+            `add_silence`:  Plays silence at the end of audio file.
+        """
+        self.sox([], infile=audio_file, add_silence=add_silence)
+
+    def play_silence(self, length=0.8):
+        """Plays silence"""
+        self.sox(["trim", "0", "{}".format(length)], add_silence=False)
+
+    def tone(self, note, length=0, tone_func='sin', gain=-12, add_silence=True):
+        """Play a tone directly over the radio
+
+        Arguments:
+        `note`:         Note can be a frequency (Hz) or number of semitones
+                            relative to middle A (440Hz) e.g. "%12" or "%-1".
+                            Two Frequencies can be given, separated by one of
+                            the characters ':', '+', '/', or '-', to generate a sweep.
+        `length`:       Length (in seconds) of the generated tone.
+                            Default: 0 (play forever)
+        `tone_func`:    Synth function to play tone. Default: sin
+                            options include: square, triangle, sawtooth,
+                            trapezium, exp, noise, brownnoise, pinknoise, pluck
+        `gain`:         Gain to apply to tone.
+                            Default: -12
+        
+        `add_silence`:  Plays silence after tone is completed.
+
+        """
+        synth_cmd = ['synth', str(length), tone_func, str(note),
+                    'gain', '{}'.format(gain)]
+        self.sox(synth_cmd, add_silence=add_silence)
+
+    def sox(self, cmd_args, infile=None, verbose=False, add_silence=False):
+        """Wrapper for `sox`. Output is played directly over the radio.
+
+        Arguments:
+            `cmd_args`:     Takes list of arguments to `sox`
+            `infile`:       Input file to sox. Default: None (null)
+            `verbose`:      Prints the complete set of arguments called
+            `add_silence`:  Plays silence after command has completed
+        """
+        if self.on_air():
+            try:
+                if infile == None:
+                    infile = '-n'
+                args = ['sox', infile, '-r', str(self.sample_rate), '-b', '16',
+                        '-c2' if self.stereo else '-c1', '-t', 'wav', '-']
+                args.extend(cmd_args)
+
+                if verbose:
+                    print(" ".join(cmd_args))
+
+                player = subprocess.Popen(args, stderr=subprocess.PIPE, stdout=self.wav_pipe_w)
+                out, err = player.communicate()
+                if player.poll():
+                    raise SubprocessError(err)
+            except OSError as e:
+                if e.errno == 2 and not e.filename:
+                    e.filename = 'sox'  # give a more descriptive file-not-found
+                                        # error on Python2.x
+                raise e
             if add_silence:
                 self.play_silence()
         else:
             raise RadioNotRunningError
 
-    def play_silence(self):
-        silence = os.path.join(os.path.dirname(__file__), "silence.wav")
-        self.play(silence, add_silence=False)
-
-
     def terminate(self):
+        self.stop.set()
         try:
             self.fm_process.terminate()
-            global _radio
-            _radio = None
         except OSError:
             pass
 
@@ -147,9 +209,15 @@ def get_radio(frequency, stereo=None, sample_rate=None, force=False):
         if _radio.frequency != frequency:
             _radio.terminate()
         if _radio.stereo != stereo:
-            _radio.terminate()
+            if _radio.stereo == False and stereo == None:
+                pass
+            else:
+                _radio.terminate()
         if _radio.sample_rate != sample_rate:
-            _radio.terminate()
+            if _radio.sample_rate == 22050 and sample_rate == None:
+                pass # default
+            else:
+                _radio.terminate()
 
         # if `force` is set, kill the existing radio
         if force:
@@ -158,15 +226,17 @@ def get_radio(frequency, stereo=None, sample_rate=None, force=False):
         pass
 
     # Start a Radio if we don't have one
-    if _radio == None:
+    if _radio == None or _radio.on_air() == False:
         _radio = Radio(frequency, stereo, sample_rate)
         _radio.start()
+        start_time, timeout = time.time(), 2
+        while (_radio.on_air() == False):
+            # wait until radio starts (or timeout)
+            if time.time() > start_time + timeout:
+                raise Exception("Radio initialisation failed")
+                break
 
-    if _radio.is_alive():
-        return _radio
-    else:
-        print("Radio initialisation failed")
-        return None
+    return _radio
 
 def kill_children():
     """Handler to kill child processes at exit"""
