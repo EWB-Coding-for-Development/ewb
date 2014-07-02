@@ -6,71 +6,31 @@ import gps
 
 import threading
 import time
-import datetime
 
-class GpsPoller(threading.Thread):
-    """Implements a thread that continuously polls the GPS for new data
+class gps(gps.gps, threading.Thread):
+    def __init__(self, *args, **kwargs):
+        """Wrapper around gps.gps
 
-    To get a GpsPoller instance, you should use get_gps()
+        Continously updates in the background, rather than requiring polling.
+        """
+        gps.gps.__init__(self, *args, **kwargs)
 
-    Inspired by: http://www.stackoverflow.com/questions/6146131/python-gps-module-reading-latest-gps-data
-    """
-    def __init__(self):
+        if len(args) < 4 and "mode" not in kwargs:
+            self.stream(gps.WATCH_ENABLE)
+
         threading.Thread.__init__(self)
         self.daemon = True
-        self.session = gps.gps(mode=gps.WATCH_ENABLE)
-        self.current_value = None
-
-    def get_current_value(self):
-        return self.current_value
-
-    def get_position(self):
-        raise NotImplementedError
-
-    def start_logging(self):
-        raise NotImplementedError
-
-    def get_log(self):
-        raise NotImplementedError
+        self.start()
 
     def run(self):
-        try:
-            while True:
-                self.current_value = self.session.next()
-        except StopIteration:
-            pass
+        while True:
+            self.last_update = self.next()
+            self.last_update_time = time.time()
 
-
-class GpsLogger(threading.Thread):
-    def __init__(self, period, count=None, fo=None):
-        threading.Thread.__init__(self)
-        self.period = period
-        self.count = count
-        self.gpsp = get_gps()
-        self.log = []
-
-    def get_value_to_log(self):
-        return (datetime.datetime.now(), self.gpsp.get_current_value())
-
-    def run(self):
-        while (self.count == None) or (self.count > 0):
-            self.log.append(self.get_value_to_log())
-            if self.count != None:
-                self.count += -1
-            time.sleep(self.period)
-
-    def get_log(self):
-        return self.log
-
-global _gpsp
-_gpsp = None
-
-def get_gps():
-    """Returns a (singleton) GpsPoller instance.
-    """
-    global _gpsp
-    if _gpsp == None:
-        poller = GpsPoller()
-        poller.start()
-        _gpsp = poller
-    return _gpsp
+    def get_map_url(self, z=18, service='google'):
+        if service == 'google':
+            return "https://www.google.com.au/maps/@{fix.latitude},{fix.longitude},{zoom}z".format(fix=self.fix, zoom=z)
+        elif service == 'openstreetmap':
+            return "http://www.openstreetmap.org/#map={zoom}/{fix.latitude}/{fix.longitude}".format(fix=self.fix, zoom=z)
+        else:
+            raise NotImplementedError("Service '{}' Not Implemented".format(service))
