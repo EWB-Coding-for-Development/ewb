@@ -7,7 +7,7 @@ import gps
 import threading
 import time
 
-class gps(gps.gps, threading.Thread):
+class GPS(gps.gps, threading.Thread):
     def __init__(self, *args, **kwargs):
         """Wrapper around gps.gps
 
