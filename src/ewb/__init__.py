@@ -1,12 +1,23 @@
 # Copyright (c) 2014 James Utter, All rights reserved.
 #
 # @author: see AUTHORS file
+"""ewb - Engineering without borders Python Module
 
-__all__ = ["blink", "position", "radio", "texttospeech"]
+classes:
+    Radio
+    Gps
 
-from ewb.position import GPS as gps
+data:
+    morse_code
+"""
 
-from ewb.fm_radio import get_radio as radio
+__author__ = "James Utter"
+__license__ = ("LGPL", "CC_BY_SA")
+__url__ = "https://github.com/EWB-Coding-for-Development/ewb"
+
+from ewb.position import GPS as Gps
+
+from ewb.fm_radio import get_radio as Radio
 
 # the following dictionary is derived from the morse package for python
 # @author: Augie Fackler <durin42@gmail.com>
