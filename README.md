@@ -32,23 +32,26 @@ Recommended but not required:
 ## How to download and run this code
 
 On your raspberry pi:
+1. Download the `ewb` code. In this example, the `ewb` folder will be placed in your home directory
 
-First find the IP ADDRESS of your Raspberry Pi. It should look something like 192.168.0.2.
+    cd ~  
+    git clone --recursive git@github.com:EWB-Coding-for-Development/ewb.git
+
+2. (Optional) Install the module system-wide
+
+    sudo ./ewb/setup.py install
+
+3.  If you are connecting the GPS directly to the Pi, the following is required to enable the serial port
+
+    sudo patch -p0 < ewb/disable_serial_console
+
+4. Now find the IP ADDRESS of your Raspberry Pi. It should look something like 192.168.0.2.
 
     # This command will print the IP ADDRESS of your Pi  
     ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
 
-Now download the `ewb` code into your home directory
-
-    cd ~  
-    git clone git@github.com:EWB-Coding-for-Development/ewb.git
-
-If you are connecting the GPS directly to the Pi, the following is required to disable the Serial Console
-
-    sudo patch -p0 < ewb/disable_serial_console
-
-Then to start the Notebook server, run:
+5. To start the Notebook server, run:
 
     sudo ipython notebook --ip=* ewb/notebooks
 
-Finally, on your computer, open a browser and navigate to http://IP ADDRESS:8888 or http://raspberrypi:8888
+6. Finally, on your computer, open a browser and navigate to http://IP ADDRESS:8888 or http://raspberrypi:8888
