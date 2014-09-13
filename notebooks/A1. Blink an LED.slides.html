@@ -1598,11 +1598,11 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .gr { color: #FF0000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .go { color: #888888 } /* Generic.Output */
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
@@ -1746,7 +1746,7 @@ In&nbsp;[1]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="figure">
-<img src="static/ewb/ewb_logo.jpg" /><p class="caption"></p>
+<img src="static/ewb/ewb_logo.jpg" />
 </div>
 </div>
 </div>
@@ -1770,9 +1770,164 @@ In&nbsp;[1]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="python-basics">Python Basics</h2>
-<h3 id="setting-variables">Setting Variables</h3>
+<ul>
+<li>Python is CaSE sENSitIVE!</li>
+<li># Everything after a hash is a comment</li>
+<li>Indentation (spaces / tabs) matters</li>
+</ul>
 </div>
 </div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="running-code">Running Code</h2>
+<p>In IPython Notebook, code is organised in cells. You can write code in a cell, and execute it to see it's output.</p>
+<p>To run a cell of code, and move to the next cell, press &lt;Shift&gt;&lt;Enter&gt;</p>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Hello World
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To run a cell of code in place, press &lt;Control&gt;&lt;Enter&gt;</p>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[4]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.06991378079780508
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At any time, you can go back to a previous cell to change or run code</p>
+</div>
+</div>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-is-CaSE-sENSitIVE!">Python is CaSE sENSitIVE!<a class="anchor-link" href="#Python-is-CaSE-sENSitIVE!">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">Print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">NameError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-7-4a9fe39e6a16&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span>Print<span class="ansiblue">(</span><span class="ansiblue">&quot;Hello World&quot;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansired">NameError</span>: name &apos;Print&apos; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1951,18 +2106,6 @@ In&nbsp;[6]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Python-is-CaSE-sENSitIVE!">Python is CaSE sENSitIVE!<a class="anchor-link" href="#Python-is-CaSE-sENSitIVE!">&#182;</a></h3>
-</div>
-</div>
-</div>
-
     </div></section>
     </section><section>
     <section>
@@ -2672,7 +2815,7 @@ In&nbsp;[49]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="figure">
-<img src="static/A1/pullup.svg" /><p class="caption"></p>
+<img src="static/A1/pullup.svg" />
 </div>
 </div>
 </div>
