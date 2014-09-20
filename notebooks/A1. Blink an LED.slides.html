@@ -1717,27 +1717,7 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[1]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;/home/pi/ewb/src/&quot;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">ENVIRON</span> <span class="o">=</span> <span class="s">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
+<section>
     <section>
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -1770,14 +1750,70 @@ In&nbsp;[1]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="python-basics">Python Basics</h2>
-<ul>
-<li>Python is CaSE sENSitIVE!</li>
-<li># Everything after a hash is a comment</li>
-<li>Indentation (spaces / tabs) matters</li>
-</ul>
 </div>
 </div>
-</div></section>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some things to keep in mind</p>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-is-CaSE-sENSitIVE!">Python is CaSE sENSitIVE!<a class="anchor-link" href="#Python-is-CaSE-sENSitIVE!">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Everything after a hash is a comment</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Indentation-is-important">Indentation is important<a class="anchor-link" href="#Indentation-is-important">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+    </div><aside class="notes">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tabs or spaces at the beginning of a line define blocks of code.</p>
+</div>
+</div>
+</div>
+    </aside></section>
     </section><section>
     <section>
     
@@ -1787,7 +1823,7 @@ In&nbsp;[1]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="running-code">Running Code</h2>
-<p>In IPython Notebook, code is organised in cells. You can write code in a cell, and execute it to see it's output.</p>
+<p>In the IPython Notebook, code is organised in cells. You can write code in a cell, and execute it to see it's output.</p>
 <p>To run a cell of code, and move to the next cell, press &lt;Shift&gt;&lt;Enter&gt;</p>
 </div>
 </div>
@@ -1796,7 +1832,7 @@ In&nbsp;[1]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1804,22 +1840,6 @@ In&nbsp;[2]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Hello World
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1838,7 +1858,7 @@ Hello World
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1847,25 +1867,6 @@ In&nbsp;[4]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[4]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-0.06991378079780508
-</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1898,7 +1899,7 @@ In&nbsp;[4]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1909,98 +1910,107 @@ In&nbsp;[7]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">NameError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-7-4a9fe39e6a16&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span>Print<span class="ansiblue">(</span><span class="ansiblue">&quot;Hello World&quot;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansired">NameError</span>: name &apos;Print&apos; is not defined</pre>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variables">Variables<a class="anchor-link" href="#Variables">&#182;</a></h2>
+</div>
 </div>
 </div>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Variables are defined by setting a variable name equal to some value</p>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">x</span>
+<div class="highlight"><pre><span class="n">is_raining</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[2]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-1
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
+</div></section>
+    </section><section>
+    <section>
     
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="if-statements">if statements</h2>
+<p>An if statement evaluates an expression. Only if the expression is True, will the code in the indented block be run.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">is_raining</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Take an umbrella&quot;</span><span class="p">)</span>
+<span class="c">#   ^ note that the code is indented. Each line with the same amount of indentation is a code block</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[3]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-True
-</pre>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that to assign the value of True to the variable &quot;is_raining&quot;, we used a single equal sign <code>=</code><br />To make a comparison, a double equal sign <code>==</code> must be used</p>
 </div>
 </div>
-
-</div>
-    </div><div class="fragment">
+</div><aside class="notes">
     
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Variables must be defined before they can be used!</p>
+</div>
+</div>
+</div>
+    </aside></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="if-/-elif-/-else">if / elif / else<a class="anchor-link" href="#if-/-elif-/-else">&#182;</a></h3>
+</div>
+</div>
+</div>
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2008,46 +2018,14 @@ In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
+<div class="highlight"><pre><span class="n">pocket_money</span> <span class="o">=</span> <span class="mf">1.5</span>
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[4]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-False
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[5]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;Hello world&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">pocket_money</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;You can buy a Snickers&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">pocket_money</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;You can buy a Snickers with change to spare!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;No chocolate for you&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2061,79 +2039,7 @@ In&nbsp;[5]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Hello world
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[6]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">TEXT</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">NameError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-6-855781c435ce&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansigreen">print</span><span class="ansiyellow">(</span>TEXT<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansired">NameError</span>: name &apos;TEXT&apos; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[7]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">my_name</span> <span class="o">=</span> <span class="s">&quot;James&quot;</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s">&quot;Hello {}&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">my_name</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Hello James
+No chocolate for you
 
 </pre>
 </div>
@@ -2151,276 +2057,23 @@ Hello James
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="testing-variables">Testing Variables</h2>
+<h2 id="Can-you-fix-this-code?">Can you fix this code?<a class="anchor-link" href="#Can-you-fix-this-code?">&#182;</a></h2>
 </div>
 </div>
 </div>
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">something</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="k">if</span> <span class="n">something</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;What thing?&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">is_sunny</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">:</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;You had better wear your sunglasses!&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-What thing?
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">pass</span>
-<span class="k">elif</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="k">pass</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[10]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">this_is_fun</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="k">if</span> <span class="n">this_is_fun</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Woohoo!&quot;</span><span class="p">)</span>
-
-<span class="c"># None, False, &#39;&#39; (an empty string), 0 all evaluate to False</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Woohoo!
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="built-in-functions">Built in Functions</h2>
-<p>Many of the most useful functions are already built in to python.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[11]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[11]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[12]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-45
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[16]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
-    <span class="k">print</span> <span class="n">i</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-9
-8
-7
-6
-5
-4
-3
-2
-1
-0
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="modules">Modules</h2>
-<p>More useful functions can be imported when needed</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[17]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>  <span class="c"># this brings in the module &quot;time&quot;</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-0
-1
-2
-3
-4
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2441,7 +2094,7 @@ In&nbsp;[17]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2459,7 +2112,7 @@ In&nbsp;[18]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2476,7 +2129,7 @@ In&nbsp;[20]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2503,46 +2156,12 @@ In&nbsp;[21]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[22]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">led_pin</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led_pin</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="First-on,-then-off!-Now-try-it-10-times-really-fast!">First on, then off! Now try it 10 times really fast!<a class="anchor-link" href="#First-on,-then-off!-Now-try-it-10-times-really-fast!">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[24]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led_pin</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led_pin</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2559,19 +2178,216 @@ In&nbsp;[24]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="reusing-code-functions">Reusing code: functions</h2>
-<p>Functions are a way to reuse code. * Arguments * Keyword arguments</p>
+<h2 id="First-on,-then-off!-Now-make-it-blink-FOREVER!">First on, then off! Now make it blink FOREVER!<a class="anchor-link" href="#First-on,-then-off!-Now-make-it-blink-FOREVER!">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>  <span class="c"># &lt;-- This imports the `sleep` function</span>
+                        <span class="c"># sleep(x) waits for x seconds before proceeding </span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led_pin</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led_pin</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="a-while-loop-can-run-forever-heres-how-to-stop-it">A while loop can run forever! Here's how to stop it:</h3>
+<p>In the Terminal, pressing &lt;Control&gt;&lt;c&gt; causes a <em>KeyboardInterrupt</em>.<br />In the IPython Notebook the <em>KeyboardInterrupt</em> is sent by pressing the Stop Button.  <i class="icon-stop"></i></p>
+</div>
+</div>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="for-loops">For loops</h2>
+<p>You can repeat a block of code many times using a <code>for</code> loop</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[25]:
+In&nbsp;[34]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="s">&quot;fun&quot;</span> <span class="ow">in</span> <span class="s">&quot;function&quot;</span>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="For-loops">For loops<a class="anchor-link" href="#For-loops">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># a &quot;for&quot; loop steps over each item in a list</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;James&quot;</span><span class="p">,</span> <span class="s">&quot;Natalie&quot;</span><span class="p">,</span> <span class="s">&quot;Alisha&quot;</span><span class="p">,</span> <span class="s">&quot;Andrew&quot;</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;hello {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+hello James
+hello Natalie
+hello Alisha
+hello Andrew
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># you can add an index to your list with enumerate()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s">&quot;James&quot;</span><span class="p">,</span> <span class="s">&quot;Natalie&quot;</span><span class="p">,</span> <span class="s">&quot;Alisha&quot;</span><span class="p">,</span> <span class="s">&quot;Andrew&quot;</span><span class="p">]):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello {}, you are number {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Hello James, you are number 0
+Hello Natalie, you are number 1
+Hello Alisha, you are number 2
+Hello Andrew, you are number 3
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="reusing-code-functions">Reusing code: functions</h2>
+<p>Functions are a way to reuse code.</p>
+<p>They can be called with <code>Arguments</code>, that are available within the function.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[13]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">is_it_fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&quot;fun&quot;</span> <span class="ow">in</span> <span class="n">x</span>
+
+<span class="n">is_it_fun</span><span class="p">(</span><span class="s">&quot;function&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2583,7 +2399,7 @@ In&nbsp;[25]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[25]:</div>
+    Out[13]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2602,7 +2418,7 @@ True
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[28]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2625,7 +2441,7 @@ In&nbsp;[28]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[29]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2654,7 +2470,7 @@ In&nbsp;[29]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[37]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2679,73 +2495,6 @@ In&nbsp;[37]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="see-how-much-shorter-the-function-is-compared-to-typing-it-out-each-time">See how much shorter the function is compared to typing it out each time</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[31]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">blink</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="o">.</span><span class="mo">05</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[32]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">gpio</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="c"># ............ continued 46 more times</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What a time saver!</p>
-</div>
-</div>
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Coding-Challenge:-Can-you-write-a-function-that-blinks-SOS-in-Morse-Code?-...-----...">Coding Challenge: Can you write a function that blinks SOS in Morse Code? ... --- ...<a class="anchor-link" href="#Coding-Challenge:-Can-you-write-a-function-that-blinks-SOS-in-Morse-Code?-...-----...">&#182;</a></h2>
 </div>
 </div>
@@ -2755,7 +2504,7 @@ In&nbsp;[32]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[49]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2819,6 +2568,16 @@ In&nbsp;[49]:
 </div>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pull-up (and sometimes pull-down) resistors are often necessary in digital circuits. They ensure that the circuit is always in either a HIGH or a LOW state. For a switch with a Pull-up resistor, when the button is not pushed (Middle), the input is only connected to the VCC via the resistor, thus is HIGH. When the button is pushed (Right) the connection through the switch to ground is much lower resistance than the connection through the resistor to VCC, therefore voltage at the input is LOW.</p>
+<p>Without a pull-up resistor, with the button not pushed the input would be &quot;floating&quot;, (would not have a defined state), and could read either HIGH or LOW, fluctuating with electrical noise.</p>
+</div>
+</div>
 </div></section>
     </section><section>
     <section>
@@ -2836,7 +2595,7 @@ In&nbsp;[49]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[52]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2849,30 +2608,11 @@ In&nbsp;[52]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[52]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-1
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[34]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2886,22 +2626,6 @@ In&nbsp;[34]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Try again
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div></section>
     </section><section>
     <section>
@@ -2912,7 +2636,7 @@ Try again
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="wait-for-it...">Wait for it...</h2>
-<p>A <em>while</em> loop repeatedly checks condition, and executes the indented code block unless the conditon fails.</p>
+<p>A <em>while</em> loop repeatedly checks a condition, and executes the indented code block unless the conditon fails.</p>
 <p>This is useful for waiting for user input:</p>
 </div>
 </div>
@@ -2920,12 +2644,12 @@ Try again
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[53]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">while</span> <span class="n">gpio</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">button_pin</span><span class="p">):</span>
-    <span class="k">pass</span> <span class="c"># do nothing. Lazy python...</span>
+    <span class="n">blink_once</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&quot;Who pressed that?&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -2933,42 +2657,14 @@ In&nbsp;[53]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Who pressed that?
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="a-while-loop-can-run-forever-heres-how-to-stop-it">A while loop can run forever! Here's how to stop it:</h3>
-<p>In the Terminal, pressing &lt;Control&gt;&lt;c&gt; causes a <em>KeyboardInterrupt</em>.<br />In the IPython Notebook the <em>KeyboardInterrupt</em> is sent by pressing the Stop Button.  <i class="icon-stop"></i></p>
-</div>
-</div>
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[57]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2979,38 +2675,6 @@ In&nbsp;[57]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Please do not push this button again!
-Please do not push this button again!
-
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">KeyboardInterrupt</span>                         Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-57-a0bb17c62df9&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      1</span> <span class="ansigreen">while</span> True<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">----&gt; 2</span><span class="ansiyellow">     </span><span class="ansigreen">if</span> <span class="ansigreen">not</span> gpio<span class="ansiyellow">.</span>input<span class="ansiyellow">(</span>button_pin<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">      3</span>         <span class="ansigreen">print</span><span class="ansiyellow">(</span><span class="ansiblue">&quot;Please do not push this button again!&quot;</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">      4</span>         sleep<span class="ansiyellow">(</span><span class="ansicyan">1</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansired">KeyboardInterrupt</span>: </pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -3028,7 +2692,7 @@ Please do not push this button again!
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[58]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3050,30 +2714,7 @@ In&nbsp;[58]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Button Pushed 1 times
-Button Pushed 2 times
-Button Pushed 3 times
-Button Pushed 4 times
-Button Pushed 5 times
-That&apos;s 5 times too many!
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
+</div><div style=display:none>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3085,10 +2726,12 @@ That&apos;s 5 times too many!
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[59]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3111,6 +2754,58 @@ In&nbsp;[59]:
 </div>
 </div>
 
+</div>
+    </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Part-3:-Sending-a-distress-signal">Part 3: Sending a distress signal<a class="anchor-link" href="#Part-3:-Sending-a-distress-signal">&#182;</a></h1>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[16]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">ewb</span>
+
+
+<span class="c"># Initialise your radio with the desired tuning frequency.</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="p">[</span><span class="mf">87.9</span><span class="p">,</span> <span class="mf">88.1</span><span class="p">,</span> <span class="mf">88.3</span><span class="p">,</span> <span class="mf">88.5</span><span class="p">,</span> <span class="mf">88.7</span><span class="p">,</span> <span class="mf">88.9</span><span class="p">,</span> <span class="mf">89.1</span><span class="p">,</span> <span class="mf">89.3</span><span class="p">]</span>
+<span class="n">group</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">freq</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">group</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Tune to {} MHz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">freq</span><span class="p">))</span>
+
+<span class="n">radio</span> <span class="o">=</span> <span class="n">ewb</span><span class="o">.</span><span class="n">Radio</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+<span class="n">radio</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">&quot;Help, I&#39;ve fallen and cannot get up.&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -3118,18 +2813,126 @@ In&nbsp;[59]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Button Pushed
-Button Released
-Button Pushed
-Button Released
-Button Pushed
-Button Released
-Stopped
+Tune to 87.9 MHz
 
 </pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Connecting-the-GPS">Connecting the GPS<a class="anchor-link" href="#Connecting-the-GPS">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[47]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">gps</span> <span class="o">=</span> <span class="n">ewb</span><span class="o">.</span><span class="n">Gps</span><span class="p">()</span>
+
+<span class="n">gps</span><span class="o">.</span><span class="n">lat</span>
+<span class="n">gps</span><span class="o">.</span><span class="n">lon</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">NameError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-47-2dadb85bef70&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span>gps <span class="ansiblue">=</span> ewb<span class="ansiblue">.</span>Gps<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">      2</span> <span class="ansiblue"></span>
+<span class="ansigreen">      3</span> gps<span class="ansiblue">.</span>lat<span class="ansiblue"></span>
+<span class="ansigreen">      4</span> gps<span class="ansiblue">.</span>lon<span class="ansiblue"></span>
+
+<span class="ansired">NameError</span>: name &apos;ewb&apos; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creating-a-message">Creating a message<a class="anchor-link" href="#Creating-a-message">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Help me. I am at Lattitude {} Longitude {}. Please send help&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gps</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">gps</span><span class="o">.</span><span class="n">lon</span><span class="p">)</span>
+<span class="n">radio</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">medical_supplies</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Panadol&quot;</span><span class="p">,</span> <span class="s">&quot;Bandages&quot;</span><span class="p">,</span> <span class="s">&quot;Water Purification tablets&quot;</span><span class="p">,</span> <span class="s">&quot;Scalpels&quot;</span><span class="p">]</span>
+
+<span class="n">radio</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">&quot;Medical supplies required&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">medical_supplies</span><span class="p">:</span>
+    <span class="n">radio</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">qty_required</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Panadol&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+                <span class="s">&quot;Bandages&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+                <span class="s">&quot;Water Purification Tablets&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+                <span class="s">&quot;Scalpels&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                <span class="s">&quot;Antiseptic&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -3142,7 +2945,7 @@ Stopped
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Part-3:-Advanced-Blinking---Morse-Code">Part 3: Advanced Blinking - Morse Code<a class="anchor-link" href="#Part-3:-Advanced-Blinking---Morse-Code">&#182;</a></h1>
+<h1 id="Part-4:-Advanced-Blinking---Morse-Code">Part 4: Advanced Blinking - Morse Code<a class="anchor-link" href="#Part-4:-Advanced-Blinking---Morse-Code">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -3163,7 +2966,7 @@ Stopped
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[60]:
+In&nbsp;[18]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3184,7 +2987,7 @@ In&nbsp;[60]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[61]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3199,25 +3002,6 @@ In&nbsp;[61]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
--
----
-.
-...
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     </div></section>
     </section><section>
@@ -3226,12 +3010,15 @@ In&nbsp;[61]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[62]:
+In&nbsp;[38]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">morse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">morse_code</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">morse_code</span><span class="p">[</span><span class="n">char</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">message</span>
 
 <span class="n">morse</span><span class="p">(</span><span class="s">&quot;toes&quot;</span><span class="p">)</span>
 </pre></div>
@@ -3245,7 +3032,7 @@ In&nbsp;[62]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[62]:</div>
+    Out[38]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -3264,7 +3051,7 @@ In&nbsp;[62]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[63]:
+In&nbsp;[36]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3280,7 +3067,7 @@ In&nbsp;[63]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[63]:</div>
+    Out[36]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -3295,12 +3082,14 @@ In&nbsp;[63]:
 </div>
 
 </div>
-    </div><div class="fragment">
+    </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[64]:
+In&nbsp;[37]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3320,14 +3109,15 @@ In&nbsp;[64]:
 <pre>
 <span class="ansired">---------------------------------------------------------------------------</span>
 <span class="ansired">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-64-e56ac1de16b1&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansiblue">&quot; &quot;</span><span class="ansiyellow">.</span>join<span class="ansiyellow">(</span>morse<span class="ansiyellow">(</span><span class="ansiblue">&quot;help&quot;</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">&lt;ipython-input-37-e56ac1de16b1&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span><span class="ansiblue">&quot; &quot;</span><span class="ansiblue">.</span>join<span class="ansiblue">(</span>morse<span class="ansiblue">(</span><span class="ansiblue">&quot;help&quot;</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
 
-<span class="ansigreen">&lt;ipython-input-62-af1f9d4b26bb&gt;</span> in <span class="ansicyan">morse</span><span class="ansiblue">(text)</span>
-<span class="ansigreen">      1</span> <span class="ansigreen">def</span> morse<span class="ansiyellow">(</span>text<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">----&gt; 2</span><span class="ansiyellow">     </span><span class="ansigreen">return</span> <span class="ansiyellow">[</span>morse_code<span class="ansiyellow">[</span>char<span class="ansiyellow">]</span> <span class="ansigreen">for</span> char <span class="ansigreen">in</span> text<span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">      3</span> <span class="ansiyellow"></span>
-<span class="ansigreen">      4</span> morse<span class="ansiyellow">(</span><span class="ansiblue">&quot;toes&quot;</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">&lt;ipython-input-35-a5fd3fa74b2e&gt;</span> in <span class="ansicyan">morse</span><span class="ansiblue">(text)</span>
+<span class="ansigreen">      5</span>     message <span class="ansiblue">=</span> <span class="ansiblue">[</span><span class="ansiblue">]</span><span class="ansiblue"></span>
+<span class="ansigreen">      6</span>     <span class="ansigreen">for</span> char <span class="ansigreen">in</span> text<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">----&gt; 7</span><span class="ansired">         </span>message<span class="ansiblue">.</span>append<span class="ansiblue">(</span>morse_code<span class="ansiblue">[</span>char<span class="ansiblue">]</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">      8</span>     <span class="ansigreen">return</span> message<span class="ansiblue"></span>
+<span class="ansigreen">      9</span> <span class="ansiblue"></span>
 
 <span class="ansired">KeyError</span>: &apos;h&apos;</pre>
 </div>
@@ -3337,7 +3127,6 @@ In&nbsp;[64]:
 </div>
 
 </div>
-    </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3346,6 +3135,46 @@ In&nbsp;[64]:
 <p><em>KeyError</em> means that the dictionary doesn't have a matching key.</p>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[41]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">morse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">morse_code</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s">&quot;?&quot;</span><span class="p">))</span> <span class="c"># If a key is not found, return `?` as a default</span>
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="n">morse</span><span class="p">(</span><span class="s">&quot;help&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[41]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+[&apos;?&apos;, &apos;.&apos;, &apos;?&apos;, &apos;?&apos;]
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section>
     </section><section>
     <section>
@@ -3375,7 +3204,7 @@ In&nbsp;[64]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[65]:
+In&nbsp;[42]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3391,69 +3220,17 @@ In&nbsp;[65]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">
-    Out[65]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
 <pre>
-{&apos;!&apos;: &apos;-.-.--&apos;,
- &apos;&quot;&apos;: &apos;.-..-.&apos;,
- &apos;$&apos;: &apos;...-..-&apos;,
- &apos;&amp;&apos;: &apos;.-...&apos;,
- &quot;&apos;&quot;: &apos;.----.&apos;,
- &apos;(&apos;: &apos;-.--.&apos;,
- &apos;)&apos;: &apos;-.--.-&apos;,
- &apos;+&apos;: &apos;.-.-.&apos;,
- &apos;,&apos;: &apos;--..--&apos;,
- &apos;-&apos;: &apos;-....-&apos;,
- &apos;.&apos;: &apos;.-.-.-&apos;,
- &apos;/&apos;: &apos;-..-.&apos;,
- &apos;0&apos;: &apos;-----&apos;,
- &apos;1&apos;: &apos;.----&apos;,
- &apos;2&apos;: &apos;..---&apos;,
- &apos;3&apos;: &apos;...--&apos;,
- &apos;4&apos;: &apos;....-&apos;,
- &apos;5&apos;: &apos;.....&apos;,
- &apos;6&apos;: &apos;-....&apos;,
- &apos;7&apos;: &apos;--...&apos;,
- &apos;8&apos;: &apos;---..&apos;,
- &apos;9&apos;: &apos;----.&apos;,
- &apos;:&apos;: &apos;---...&apos;,
- &apos;;&apos;: &apos;-.-.-.&apos;,
- &apos;=&apos;: &apos;-...-&apos;,
- &apos;?&apos;: &apos;..--..&apos;,
- &apos;@&apos;: &apos;.--.-.&apos;,
- &apos;A&apos;: &apos;.-&apos;,
- &apos;B&apos;: &apos;-...&apos;,
- &apos;C&apos;: &apos;-.-.&apos;,
- &apos;D&apos;: &apos;-..&apos;,
- &apos;E&apos;: &apos;.&apos;,
- &apos;F&apos;: &apos;..-.&apos;,
- &apos;G&apos;: &apos;--.&apos;,
- &apos;H&apos;: &apos;....&apos;,
- &apos;I&apos;: &apos;..&apos;,
- &apos;J&apos;: &apos;.---&apos;,
- &apos;K&apos;: &apos;-.-&apos;,
- &apos;L&apos;: &apos;.-..&apos;,
- &apos;M&apos;: &apos;--&apos;,
- &apos;N&apos;: &apos;-.&apos;,
- &apos;O&apos;: &apos;---&apos;,
- &apos;P&apos;: &apos;.--.&apos;,
- &apos;Q&apos;: &apos;--.-&apos;,
- &apos;R&apos;: &apos;.-.&apos;,
- &apos;S&apos;: &apos;...&apos;,
- &apos;T&apos;: &apos;-&apos;,
- &apos;U&apos;: &apos;..-&apos;,
- &apos;V&apos;: &apos;...-&apos;,
- &apos;W&apos;: &apos;.--&apos;,
- &apos;X&apos;: &apos;-..-&apos;,
- &apos;Y&apos;: &apos;-.--&apos;,
- &apos;Z&apos;: &apos;--..&apos;,
- &apos;_&apos;: &apos;..--.-&apos;}
-</pre>
-</div>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">ImportError</span>                               Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-42-eb3134895227&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span><span class="ansigreen">import</span> ewb<span class="ansiblue"></span>
+<span class="ansigreen">      2</span> ewb<span class="ansiblue">.</span>morse<span class="ansiblue"></span>
 
+<span class="ansired">ImportError</span>: No module named ewb</pre>
+</div>
 </div>
 
 </div>
@@ -3467,7 +3244,7 @@ In&nbsp;[65]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[70]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3480,28 +3257,12 @@ In&nbsp;[70]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-.... ..   .--. -.-- - .... --- -.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div><div class="fragment">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[74]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3509,31 +3270,6 @@ In&nbsp;[74]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-74-399063dd8460&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansigreen">print</span><span class="ansiyellow">(</span><span class="ansiblue">&quot; &quot;</span><span class="ansiyellow">.</span>join<span class="ansiyellow">(</span>morse<span class="ansiyellow">(</span><span class="ansiblue">&quot;Hello Python&quot;</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">&lt;ipython-input-62-af1f9d4b26bb&gt;</span> in <span class="ansicyan">morse</span><span class="ansiblue">(text)</span>
-<span class="ansigreen">      1</span> <span class="ansigreen">def</span> morse<span class="ansiyellow">(</span>text<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">----&gt; 2</span><span class="ansiyellow">     </span><span class="ansigreen">return</span> <span class="ansiyellow">[</span>morse_code<span class="ansiyellow">[</span>char<span class="ansiyellow">]</span> <span class="ansigreen">for</span> char <span class="ansigreen">in</span> text<span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">      3</span> <span class="ansiyellow"></span>
-<span class="ansigreen">      4</span> morse<span class="ansiyellow">(</span><span class="ansiblue">&quot;toes&quot;</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansired">KeyError</span>: &apos;e&apos;</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -3555,12 +3291,17 @@ In&nbsp;[74]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[75]:
+In&nbsp;[46]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">morse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">morse_code</span><span class="p">[</span><span class="n">char</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">])</span>
+    <span class="c">#return &quot; &quot;.join([morse_code[char.upper()] for char in text])</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">morse_code</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s">&quot;?&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">morse</span><span class="p">(</span><span class="s">&quot;Hello There&quot;</span><span class="p">))</span>
 </pre></div>
@@ -3576,7 +3317,7 @@ In&nbsp;[75]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-.... . .-.. .-.. ---   - .... . .-. .
+? ? ? ? ? ? ? ? ? ? ?
 
 </pre>
 </div>
@@ -3604,7 +3345,7 @@ In&nbsp;[75]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[76]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3635,21 +3376,39 @@ In&nbsp;[76]:
 <h2 id="advanced-coding-challenge-write-a-function-that-converts-morse-to-text">Advanced Coding Challenge: Write a function that converts Morse to Text</h2>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[52]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># This snippet inverts the morse_code dictionary using a &quot;dictionary comprehension&quot; - it&#39;s pretty neat</span>
+
+<span class="n">inv_morse_code</span> <span class="o">=</span> <span class="p">{</span><span class="n">mc</span><span class="p">:</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">mc</span> <span class="ow">in</span> <span class="n">morse_code</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div><div class="fragment">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[77]:
+In&nbsp;[53]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">inv_morse_code</span> <span class="o">=</span> <span class="p">{</span><span class="n">mc</span><span class="p">:</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">mc</span> <span class="ow">in</span> <span class="n">morse_code</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-<span class="k">def</span> <span class="nf">morse_to_text</span><span class="p">(</span><span class="n">morse_text</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">morse_2_text</span><span class="p">(</span><span class="n">morse_text</span><span class="p">):</span>
     <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">morse_word</span> <span class="ow">in</span> <span class="n">morse_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;   &quot;</span><span class="p">):</span>
-        <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">inv_morse_code</span><span class="p">[</span><span class="n">morse_char</span><span class="p">]</span> <span class="k">for</span> <span class="n">morse_char</span> <span class="ow">in</span> <span class="n">morse_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)]))</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">morse_char</span> <span class="ow">in</span> <span class="n">morse_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">):</span>
+            <span class="n">chars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inv_morse_code</span><span class="p">[</span><span class="n">morse_char</span><span class="p">])</span>
+        <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chars</span><span class="p">))</span>
     <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 
 <span class="n">morse_to_text</span><span class="p">(</span><span class="s">&#39;.... . .-.. .-.. ---   - .... . .-. .&#39;</span><span class="p">)</span>
@@ -3663,23 +3422,95 @@ In&nbsp;[77]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">
-    Out[77]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
 <pre>
-&apos;HELLO THERE&apos;
-</pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-53-220268833ca9&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">     11</span> <span class="ansiblue"></span>
+<span class="ansigreen">     12</span> <span class="ansiblue"></span>
+<span class="ansigreen">---&gt; 13</span><span class="ansired"> </span>morse_to_text<span class="ansiblue">(</span><span class="ansiblue">&apos;.... . .-.. .-.. ---   - .... . .-. .&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">&lt;ipython-input-53-220268833ca9&gt;</span> in <span class="ansicyan">morse_to_text</span><span class="ansiblue">(morse_text)</span>
+<span class="ansigreen">      2</span>     words <span class="ansiblue">=</span> <span class="ansiblue">[</span><span class="ansiblue">]</span><span class="ansiblue"></span>
+<span class="ansigreen">      3</span>     <span class="ansigreen">for</span> morse_word <span class="ansigreen">in</span> morse_text<span class="ansiblue">.</span>split<span class="ansiblue">(</span><span class="ansiblue">&quot;   &quot;</span><span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">----&gt; 4</span><span class="ansired">         </span>words<span class="ansiblue">.</span>append<span class="ansiblue">(</span><span class="ansiblue">&quot;&quot;</span><span class="ansiblue">.</span>join<span class="ansiblue">(</span><span class="ansiblue">[</span>inv_morse_code<span class="ansiblue">[</span>morse_char<span class="ansiblue">]</span> <span class="ansigreen">for</span> morse_char <span class="ansigreen">in</span> morse_word<span class="ansiblue">.</span>split<span class="ansiblue">(</span><span class="ansiblue">&quot; &quot;</span><span class="ansiblue">)</span><span class="ansiblue">]</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">      5</span>     <span class="ansigreen">return</span> <span class="ansiblue">&quot; &quot;</span><span class="ansiblue">.</span>join<span class="ansiblue">(</span>words<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">      6</span> <span class="ansiblue"></span>
+
+<span class="ansired">KeyError</span>: &apos;....&apos;</pre>
+</div>
 </div>
 
 </div>
-
-</div>
 </div>
 
 </div>
-    </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Alternative using list comprehesions</span>
+
+<span class="k">def</span> <span class="nf">morse_to_text</span><span class="p">(</span><span class="n">morse_text</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">morse_word</span> <span class="ow">in</span> <span class="n">morse_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;   &quot;</span><span class="p">):</span>
+        <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">inv_morse_code</span><span class="p">[</span><span class="n">morse_char</span><span class="p">]</span> <span class="k">for</span> <span class="n">morse_char</span> <span class="ow">in</span> <span class="n">morse_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)]))</span>
+    <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wow! Well done! You have covered so much today</p>
+<ul>
+<li>How to run code</li>
+<li>Variables</li>
+<li>Comparison vs assignment</li>
+<li>If statements / elif / else</li>
+<li>While statements</li>
+<li>For statements</li>
+<li>Ranges</li>
+<li>Functions</li>
+<li>Blinking LEDs</li>
+<li>Reading button presses</li>
+<li>Transmitting distress signals</li>
+<li>Generating strings</li>
+<li>Lists</li>
+<li>Dictionaries</li>
+<li>and more!</li>
+</ul>
+</div>
+</div>
+</div></section>
+    </section>
 </div>
 </div>
 
